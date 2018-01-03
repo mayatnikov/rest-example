@@ -1,0 +1,4 @@
+TEST APP1
+
+             Application:  ${application.formatted-version}
+             Spring-boot:  ${spring-boot.formatted-version}

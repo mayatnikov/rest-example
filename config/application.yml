@@ -1,0 +1,12 @@
+spring:
+  profiles: default
+  main:
+    show-banner: true
+
+server:
+    port: 8888
+    session-timeout: 5
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 300
+
