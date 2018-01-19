@@ -1,5 +1,4 @@
 spring:
-  profiles: default
   main:
     show-banner: true
 
@@ -8,5 +7,75 @@ server:
     session-timeout: 5
     tomcat:
         uri-encoding: UTF-8
-        max-threads: 300
+        max-threads: 200
 
+my:
+ humans:
+  - age: 12
+    name: Petrov
+    addresses:
+      - city: Moscow
+        street: Kulakova
+        build: 24
+      - city: Saratov
+        street: Кала Маркса
+        build: 123
+      - city: Пермь
+        street: Танкистов
+        build: 5821
+    documents:
+      - dtype: 1
+        docnum: 23
+        docser: 455
+      - dtype: 12
+        docnum: 5554
+        docser: 777
+      - dtype: 8
+        docnum: 123
+        docser: 4565
+
+  - age: 12
+    name: Petrov
+    addresses:
+      - city: Moscow
+        street: Kulakova
+        build: 24
+      - city: Saratov
+        street: Кала Маркса
+        build: 123
+      - city: Пермь
+        street: Танкистов
+        build: 5821
+    documents:
+      - dtype: 1
+        docnum: 23
+        docser: 455
+      - dtype: 12
+        docnum: 5554
+        docser: 777
+      - dtype: 8
+        docnum: 123
+        docser: 4565
+
+  - age: 12
+    name: Petrov
+    addresses:
+      - city: Moscow
+        street: Kulakova
+        build: 24
+      - city: Saratov
+        street: Кала Маркса
+        build: 123
+      - city: Пермь
+        street: Танкистов
+        build: 5821
+    documents:
+      - dtype: 1
+        docnum: 23
+        docser: 455
+      - dtype: 12
+        docnum: 5554
+        docser: 777
+      - dtype: 8
+        docnum: 123
+        docser: 4565

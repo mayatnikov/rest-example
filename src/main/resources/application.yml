@@ -8,4 +8,15 @@ server:
     tomcat:
         uri-encoding: UTF-8
         max-threads: 200
-
+my:
+ humans:
+  - age: 12
+    name: Petrov
+    addresses:
+      - city: Moscow
+        street: Kulakova
+        build: 24
+    documents:
+      - dtype: 1
+        docnum: 23
+        docser: 455

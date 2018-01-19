@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
  * Created with IntelliJ IDEA.
  * User: vitaly
  * Date: 09/07/17
- ; ЕшьуЖ 09Ж03
+
  */
 @Configuration
 public class MyConf implements ApplicationListener<EmbeddedServletContainerInitializedEvent> {
