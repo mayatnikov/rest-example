@@ -1,3 +1,6 @@
 target
 *~
 **/.DS_Store
+rest-example.iml
+rest-example.ipr
+rest-example.iws
