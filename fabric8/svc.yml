@@ -1,0 +1,12 @@
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 8888
+    protocol: TCP
+    targetPort: 8888
+  externalIPs:
+  - 192.168.17.48
+  - 192.168.17.44
+  - 192.168.17.45
+  - 192.168.17.50

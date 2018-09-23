@@ -1,0 +1,87 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>mayatnikov</groupId>
+  <artifactId>rest-example</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId> 
+    <version>1.5.5.RELEASE</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId> 
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId> 
+      </plugin>
+	    
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId> 
+        <version>3.5.40</version>
+	    <configuration>
+                <verbose>true</verbose>
+                <images>
+                    <image>
+                        <!-- Replace your-project-name -->
+                        <name>${project.groupId}/${project.artifactId}</name>
+                        <build>
+                            <!-- This is the same FROM used in a Dockerfile -->
+                            <from>anapsix/alpine-java</from>
+							<tags>
+								<tag>latest</tag>
+								<tag>${project.version}</tag>
+							</tags>
+							<ports>
+								<port>8888</port>
+							</ports>
+                            <!-- This is the same ENTRYPOINT used in a Dockerfile -->
+                            <entryPoint>
+                                <exec>
+                                    <arg>java</arg>
+                                    <!-- This extra argument is so Tomcat can start faster due to lack of entropy -->
+                                    <arg>-Djava.security.egd=file:/dev/./urandom</arg>
+                                    <arg>-jar</arg>
+                                    <!-- /maven/ is the default dir that the plugin copies your artifact to -->
+                                    <arg>/app/${project.artifactId}-${project.version}.${project.packaging}</arg>
+									<arg>--spring.config.location=/app/config/application.yml</arg>
+                                </exec>
+                            </entryPoint>
+                            <assembly>
+                                <name>app</name>
+							    <!-- This is a predefined assembly.xml that will only copy your final artifact to the Docker image -->
+                                <descriptorRef>artifact</descriptorRef>
+							</assembly>
+							<volumes>
+									<volume>/app/config</volume> 
+							  </volumes>
+							  <runCmds>
+								<run>mkdir -p /app/config; ls -alR /app</run>
+							  </runCmds>
+                        </build>
+                    </image>
+                </images>
+	    </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+<!--
+mvn clean package fabric8:build
+mvn -Ddocker.username=mayatnikov -Ddocker.password=xxxxx fabric8:push
+mvn fabric8:resource
+mvn fabric8:deploy
+
+-->

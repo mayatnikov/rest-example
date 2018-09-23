@@ -1,0 +1,13 @@
+spec:
+  replicas: 2
+  template:
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: rest-example
+      containers:
+        - volumeMounts:
+            - name: config
+              mountPath: /app/config
+ 
