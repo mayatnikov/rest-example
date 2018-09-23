@@ -3,7 +3,7 @@
     <property name="LOG_HOME" value="/tmp/log" />
     <appender name="FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/master-cache.log</file>
+        <file>${LOG_HOME}/app.log</file>
 
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
@@ -33,27 +33,13 @@
         <appender-ref ref="FILE" />
     </logger>
 
-    <logger name="ru.mtsbank.mc" additivity="false">
-        <level value="INFO" />
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </logger>
-
-    <logger name="ru.mtsbank.mc.controller" additivity="false">
+    <logger name="ru.mvn" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </logger>
-
-    <logger name="ru.mtsbank.mc.repository" additivity="false">
-        <level value="DEBUG" />
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
     </logger>
 
     <root>
         <level value="WARN" />
-        <appender-ref ref="FILE" />
         <appender-ref ref="CONSOLE" />
     </root>
 
