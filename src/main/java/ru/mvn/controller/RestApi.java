@@ -39,7 +39,7 @@ public class RestApi {
      * возвращает имя ноды которая ответила
      * @return
      */
-    @RequestMapping( value={"/inf"}, method = RequestMethod.POST )
+    @RequestMapping( value={"/inf"}, method = RequestMethod.GET )
     public @ResponseBody String getStat() {
         tik++;
         String answer = "OK. tik="+tik+" "+conf.getHost_ip()+":"+conf.getPort();
@@ -53,7 +53,7 @@ public class RestApi {
      *  curl -XPOST --header "Accept: application/json" localhost:8888/humans
      * @return
      */
-    @RequestMapping(value = "/humans", method = RequestMethod.POST,
+    @RequestMapping(value = "/humans", method = RequestMethod.GET,
             produces={"application/json","application/xml"})
     public @ResponseBody  List<Human> getHumans() {
 
@@ -67,7 +67,7 @@ public class RestApi {
      * команда умереть процессу
      * @return
      */
-    @RequestMapping( value={"/kill"}, method = RequestMethod.POST )
+    @RequestMapping( value={"/kill"}, method = RequestMethod.GET )
     public @ResponseBody String killMe() {
         thisApp.close();
         return "I am dead!";

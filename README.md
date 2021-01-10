@@ -9,8 +9,8 @@
 * Для принудительного завершения сервиса: curl -XPOST http://127.0.0.1:8888/kill
 * Для проверки разных форматов ответа
 * Проверка rest с JSON ответом  curl -XPOST http://127.0.0.1:8888/humans
-** curl -XPOST --header "Accept: application/xml" localhost:8888/humans
-** curl -XPOST --header "Accept: application/json" localhost:8888/humans
+** curl  --header "Accept: application/xml" localhost:8888/humans
+** curl  --header "Accept: application/json" localhost:8888/humans
 
 ### Для работы с docker
 * Сборка image: __mvn package fabric8:build__ - сборка docker-image (docker должен работать)
